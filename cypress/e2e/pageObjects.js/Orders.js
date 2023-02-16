@@ -78,9 +78,18 @@ export class Orders {
         cy.get('input[name="lastname"]').clear()
         cy.get('input[name="email"]').clear()
         cy.get('input[name="address_1"]').clear()
+        cy.get('input[name="city"]').clear()
         cy.get('select[name="zone_id"]').select('FALSE')
         cy.get('input[name="postcode"]').clear()
         // cy.get('select[name="country_id"]').select('default')
+    }
+
+    validationAssert(){
+        cy.get('.help-block').should('be.visible')
+    }
+
+    continueButton(){
+        cy.get('div.col-md-12').find('button').click()
     }
 }
 

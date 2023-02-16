@@ -16,5 +16,8 @@ export class CartActions {
         cy.get('div.block_7').find('span.cart_total').should('have.text', '$63.00')
     
     }
+    addShirt(){
+        cy.get('form').eq(1).find('div', '.control-label col-md-4')
+    }
 }
 export const cart = new CartActions
