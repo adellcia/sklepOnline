@@ -11,7 +11,7 @@ let longZIP = '12345678910'
 let longForm = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et sem quis orci mollis imperdiet. Sed a nibh nec dui semper orci.'
 
 describe('spec', () => {
-  it('1', () => {
+  it.only('1', () => {
     
     goTo.accessorsPage()
     cy.get('a').eq(116).click({force: true})
@@ -24,7 +24,7 @@ describe('spec', () => {
   
     goTo.searchPage()
     cart.addToCart()
-    cart.cartCheck3
+    cart.cartCheck3()
 
   cy.get('a#cart_checkout2').click()
   cy.get('form#accountFrm').then( table => {
@@ -33,8 +33,9 @@ describe('spec', () => {
   })
   orderForm.asGuest()
   cy.get('div.form-group').find('button').click()
-  cy.get('div.col-md-12').find('button').click().wait(500)
-  cy.get('div#maincontainer').find('h1', ' YOUR ORDER HAS BEEN PROCESSED!')
+  orderForm.continueButton()
+  cy.wait(500)
+  cy.get('div#maincontainer').find('h1').should('have.text', '\n   Your Order Has Been Processed!\n  \n')
   })
 })
 
@@ -75,7 +76,7 @@ it('<3 signs validation', () => {
   }
 })
 })
-it.only('>128 signs validation', () => {
+it('>128 signs validation', () => {
   cart.addShirt()
   formFields1.forEach((field, index) => {
   orderForm.validation()

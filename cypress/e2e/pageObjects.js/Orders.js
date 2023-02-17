@@ -67,9 +67,6 @@ export class Orders {
 
     cy.get('form').eq(1)
     .find('div', '.control-label col-md-6').find('select[name="zone_id"]').select(region)
-    
-    
-    //cy.get('div.col-md-12').find('button').click().wait(500)
         
     }
 
@@ -81,7 +78,6 @@ export class Orders {
         cy.get('input[name="city"]').clear()
         cy.get('select[name="zone_id"]').select('FALSE')
         cy.get('input[name="postcode"]').clear()
-        // cy.get('select[name="country_id"]').select('default')
     }
 
     validationAssert(){
