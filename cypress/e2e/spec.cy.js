@@ -1,9 +1,11 @@
-
+//css selectors
 let baseUrl = 'https://automationteststore.com/'
 let formPage = 'https://automationteststore.com/index.php?rt=checkout/guest_step_1'
-import { goTo } from "./pageObjects.js/Navigation"
-import { cart } from "./pageObjects.js/Cart-actions"
-import { orderForm } from "./pageObjects.js/Orders"
+
+import { goTo } from "../support/pageObjects.js/Navigation"
+import { cart } from "../support/pageObjects.js/Cart-actions"
+import { orderForm } from "../support/pageObjects.js/Orders"
+
 const formFieldsall = [('input[name="firstname"]'), ('input[name="lastname"]'), ('input[name="email"]'), ('input[name="address_1"]'), ('input[name="city"]'), ('input[name="postcode"]')]
 const formFields1 = [('input[name="firstname"]'), ('input[name="lastname"]'), ('input[name="address_1"]'), ('input[name="postcode"]')]
 let shortZIP = '1'
